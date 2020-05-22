@@ -1,3 +1,4 @@
+import resume_builder.py
 from flask import *
 
 app = Flask(__name__)
@@ -16,7 +17,9 @@ def personal():
 		specialization = request.args.get('specialization', type=str)
 		mobile = request.args.get('mobile', type=str)
 
-	return {'name' : name,
+	
+	resume_builder.personalInformation(name,year,dob,email,enrollment,department,gender,specialization,mobile)
+	'''return {'name' : name,
 			'year' : year,
 			'dob'  : dob,
 			'email': email,
@@ -26,7 +29,7 @@ def personal():
 			'specialization' : specialization,
 			'mobile' : mobile
 			}
-
+	'''
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run()
